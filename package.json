@@ -1,0 +1,26 @@
+{
+  "name": "funky-validation",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build/node/index.js",
+  "module": "build/web/index.js",
+  "files": [
+    "src",
+    "build"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "funky-lib": "^7.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
