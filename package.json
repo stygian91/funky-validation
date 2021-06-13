@@ -1,6 +1,6 @@
 {
   "name": "funky-validation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "build/node/index.js",
   "module": "build/web/index.js",
@@ -9,18 +9,24 @@
     "build"
   ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:es": "cross-env BABEL_ENV=es babel src -d build/es",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src -d build/cjs",
+    "build": "npm run build:es && npm run build:cjs",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.14.5",
     "funky-lib": "^7.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
     "cross-env": "^7.0.3",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.2"
+    "jest": "^27.0.4"
   }
 }
